@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>학원 과제 진도 체크</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>
+    <h1>학원 과제 진도 체크</h1>
+    <p>학원별 과제와 수행률을 관리하는 학생용 웹사이트</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>학원 등록</h2>
+      <input id="academyName" placeholder="학원 이름" />
+      <input id="academySubject" placeholder="과목" />
+      <input id="academyDay" placeholder="요일 예: 월, 수, 금" />
+      <textarea id="academyMemo" placeholder="메모"></textarea>
+      <button id="addAcademyBtn">학원 등록</button>
+    </section>
+
+    <section class="card">
+      <h2>과제 입력</h2>
+      <input id="taskDate" type="date" />
+      <select id="taskAcademy"></select>
+      <input id="taskSubject" placeholder="과목" />
+      <textarea id="taskContent" placeholder="과제 내용"></textarea>
+      <input id="taskDeadline" type="date" />
+
+      <select id="taskProgress">
+        <option value="0">0%</option>
+        <option value="25">25%</option>
+        <option value="50">50%</option>
+        <option value="75">75%</option>
+        <option value="100">100%</option>
+      </select>
+
+      <label class="checkbox">
+        <input id="taskDone" type="checkbox" />
+        완료
+      </label>
+
+      <button id="addTaskBtn">과제 추가</button>
+    </section>
+
+    <section class="card">
+      <h2>진행률</h2>
+      <p>전체 완료율: <strong id="totalProgress">0%</strong></p>
+      <p>미완료 과제: <strong id="remainingTasks">0개</strong></p>
+      <div id="academyProgress"></div>
+    </section>
+
+    <section class="card">
+      <h2>과제 목록</h2>
+
+      <div class="filters">
+        <select id="filterAcademy">
+          <option value="all">전체 학원</option>
+        </select>
+
+        <input id="filterSubject" placeholder="과목 검색" />
+
+        <select id="filterStatus">
+          <option value="all">전체</option>
+          <option value="done">완료</option>
+          <option value="notDone">미완료</option>
+        </select>
+
+        <button id="sortDeadlineBtn">마감일 순</button>
+      </div>
+
+      <div id="taskList"></div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
