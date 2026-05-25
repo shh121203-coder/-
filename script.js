@@ -218,9 +218,20 @@ function renderProgress() {
           academyTasks.length
       );
 
-      const p = document.createElement("p");
-      p.textContent = `${academy.name}: ${rate}%`;
-      $("academyProgress").appendChild(p);
+      const item = document.createElement("div");
+item.className = "progress-item";
+
+item.innerHTML = `
+  <div class="progress-label">
+    <span>${academy.name}</span>
+    <span>${rate}%</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" style="width: ${rate}%"></div>
+  </div>
+`;
+
+$("academyProgress").appendChild(item);
     }
   });
 }
